@@ -7,7 +7,6 @@ import { useScheduleStore } from './types/useScheduleStore';
 function App() {
   const fetchMembers = useScheduleStore((s) => s.fetchMembers);
   const fetchSchedules = useScheduleStore((s) => s.fetchSchedules); // Grab fetchSchedules action
-  const allLocationConfigs = Object.values(LOCATION_CONFIGS);
   
   useEffect(() => {
     fetchMembers(); //fecth all members for the assigness
@@ -38,9 +37,9 @@ function App() {
 
         {/* Dynamic Multi-Location Scheduling Grids */}
         <div className="space-y-6">
-          <ScheduleTable config={LOCATION_CONFIGS.LNHC} allLocations={allLocationConfigs}/>
-          <ScheduleTable config={LOCATION_CONFIGS.Tangway} allLocations={allLocationConfigs}/>
-          <ScheduleTable config={LOCATION_CONFIGS.GarciaRosario} allLocations={allLocationConfigs}/>
+          <ScheduleTable config={LOCATION_CONFIGS.LNHC} />
+          <ScheduleTable config={LOCATION_CONFIGS.Tangway}/>
+          <ScheduleTable config={LOCATION_CONFIGS.GarciaRosario}/>
         </div>
       </main>
     </div>
