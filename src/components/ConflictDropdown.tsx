@@ -1,14 +1,15 @@
 import React from 'react';
 import { useScheduleStore } from '../types/useScheduleStore';
-import type { LocationId } from '../types/types';
+import type { LocationId, Member } from '../types/types';
 
 interface ConflictDropdownProps {
-  locationId: LocationId;
-  rowId: string;
-  date: string;
-  roleKey: string;
-  value: string;
-  onChange: (value: string) => void;
+    locationId: LocationId;
+    members: Member[];
+    rowId: string;
+    date: string;
+    roleKey: string;
+    value: string;
+    onChange: (value: string) => void;
 }
 
 export const ConflictDropdown: React.FC<ConflictDropdownProps> = ({
@@ -18,11 +19,12 @@ export const ConflictDropdown: React.FC<ConflictDropdownProps> = ({
   roleKey,
   value,
   onChange,
+  members,
 }) => {
-  const { members, isMemberAssignedElsewhere, schedules } = useScheduleStore();
+  const { isMemberAssignedElsewhere, schedules } = useScheduleStore();
 
   // Find if there is an intra-row conflict (same person, different role in the same row)
-  const currentRow = schedules[locationId].find(r => r.id === rowId);
+  const currentRow = schedules[locationId]?.find(r => r.id === rowId);
   
   return (
     <select

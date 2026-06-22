@@ -5,10 +5,37 @@ export interface Member {
 
 export type LocationId = 'LNHC' | 'Tangway' | 'GarciaRosario';
 
+export type LNHCId =
+  | 'song_leader_id'
+  | 'backup'
+  | 'leadGuitar'
+  | 'acoustic'
+  | 'bass'
+  | 'keyboard'
+  | 'drummer'
+  | 'soundTech'
+  | 'easyWorship';
+
+export type TangwayId =
+  | 'song_leader_id'
+  | 'musician'
+  | 'multimedia'
+  | 'soundTech';
+
+export type GarciaRosarioId =
+  | 'singer'
+  | 'musicians';
+
+// KEEP THIS (important)
+export interface SchedulePayload {
+  date: string;
+  [key: string]: string;
+}
+
 export interface ScheduleRow {
   id: string;
-  date: string; // YYYY-MM-DD
-  assignments: Record<string, string>; // RoleKey -> MemberId
+  date: string;
+  assignments: Record<string, string>;
 }
 
 export interface LocationConfig {
@@ -22,27 +49,29 @@ export const LOCATION_CONFIGS: Record<LocationId, LocationConfig> = {
     id: 'LNHC',
     name: 'LNHC',
     roles: [
-      { key: 'song_leader_id', label: 'Song Leader' },
+      { key: 'song_leader', label: 'Song Leader' },
       { key: 'backup', label: 'Backup' },
-      { key: 'leadGuitar', label: 'Lead Guitar' },
+      { key: 'lead_guitar', label: 'Lead Guitar' },
       { key: 'acoustic', label: 'Acoustic' },
       { key: 'bass', label: 'Bass' },
       { key: 'keyboard', label: 'Keyboard' },
       { key: 'drummer', label: 'Drummer' },
-      { key: 'soundTech', label: 'Sound Tech' },
-      { key: 'easyWorship', label: 'Easy Worship' },
+      { key: 'sound_tech', label: 'Sound Tech' },
+      { key: 'easy_worship', label: 'Easy Worship' },
     ],
   },
+
   Tangway: {
     id: 'Tangway',
     name: 'Tangway',
     roles: [
-      { key: 'song_leader_id', label: 'Song Leader' },
+      { key: 'song_leader', label: 'Song Leader' },
       { key: 'musician', label: 'Musician' },
       { key: 'multimedia', label: 'Multimedia' },
-      { key: 'soundTech', label: 'Sound Tech' },
+      { key: 'sound_tech', label: 'Sound Tech' },
     ],
   },
+
   GarciaRosario: {
     id: 'GarciaRosario',
     name: 'Garcia/Rosario',
