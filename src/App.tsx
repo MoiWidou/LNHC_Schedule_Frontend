@@ -21,12 +21,12 @@ function App() {
             <h1 className="text-2xl font-black text-gray-900 tracking-tight">
               Lipa New Hope Church PnW Scheduling Website
             </h1>
-            <p className="text-sm text-gray-500 font-medium">Nathan Pogi</p>
+            {/* <p className="text-sm text-gray-500 font-medium">Nathan Pogi</p> */}
           </div>
           <div className="flex items-center gap-4 text-xs font-semibold">
-            <span className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+            {/* <span className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span> Complete Sync
-            </span>
+            </span> */}
           </div>
         </div>
       </header>
