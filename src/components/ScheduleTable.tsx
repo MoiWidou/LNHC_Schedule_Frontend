@@ -189,37 +189,6 @@ export const ScheduleTable: React.FC<ScheduleTableProps> = ({ config }) => {
   // 📥 EXPORT FEATURE HANDLERS
   // ==========================================
   
-  // 1. Core CSV File Compiler Logic
-  const exportToCSV = () => {
-    if (displayRows.length === 0) return alert("No active records found to compile.");
-
-    // Generate Header Row
-    const headers = ["Serving Date", ...config.roles.map(role => role.label)];
-    const csvLines = [headers.join(",")];
-
-    // Map each dataset allocation row
-    displayRows.forEach(row => {
-      const parsedDate = row.date ? new Date(row.date).toLocaleDateString('en-US') : 'No Date';
-      const rowContent = [
-        `"${parsedDate}"`,
-        ...config.roles.map(role => {
-          const assignedMember = getMemberName(row.assignments[role.key]);
-          // Clean dynamic input string names from unexpected break commas
-          return `"${assignedMember.replace(/"/g, '""') || 'Unassigned'}"`;
-        })
-      ];
-      csvLines.push(rowContent.join(","));
-    });
-
-    // Create trigger anchor initialization pipeline
-    const blob = new Blob([csvLines.join("\n")], { type: 'text/csv;charset=utf-8;' });
-    const dynamicLink = document.createElement("a");
-    dynamicLink.href = URL.createObjectURL(blob);
-    dynamicLink.setAttribute("download", `${config.name.replace(/\s+/g, '_')}_Schedule.csv`);
-    document.body.appendChild(dynamicLink);
-    dynamicLink.click();
-    document.body.removeChild(dynamicLink);
-  };
 
   const handleSave = async () => {
     try {
