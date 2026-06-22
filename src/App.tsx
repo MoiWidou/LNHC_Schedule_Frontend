@@ -1,0 +1,37 @@
+import { LOCATION_CONFIGS } from './types/types';
+import { MemberManagement } from './components/MemberManagement';
+import { ScheduleTable } from './components/ScheduleTable';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 pb-12">
+      <header className="bg-white border-b border-gray-200 py-6 px-8 mb-8 shadow-sm">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-black text-gray-900 tracking-tight">Lipa New Hope Church PnW Scheduling Website</h1>
+            <p className="text-sm text-gray-500 font-medium">Nathan Pogi</p>
+          </div>
+          <div className="flex items-center gap-4 text-xs font-semibold">
+            <span className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span> Complete Sync
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Shared Member Registry Roster */}
+        <MemberManagement />
+
+        {/* Dynamic Multi-Location Scheduling Grids */}
+        <div className="space-y-6">
+          <ScheduleTable config={LOCATION_CONFIGS.LNHC} />
+          <ScheduleTable config={LOCATION_CONFIGS.Tangway} />
+          <ScheduleTable config={LOCATION_CONFIGS.GarciaRosario} />
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default App;
