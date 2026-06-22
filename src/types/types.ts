@@ -22,7 +22,7 @@ export const LOCATION_CONFIGS: Record<LocationId, LocationConfig> = {
     id: 'LNHC',
     name: 'LNHC',
     roles: [
-      { key: 'songLeader', label: 'Song Leader' },
+      { key: 'song_leader_id', label: 'Song Leader' },
       { key: 'backup', label: 'Backup' },
       { key: 'leadGuitar', label: 'Lead Guitar' },
       { key: 'acoustic', label: 'Acoustic' },
@@ -37,7 +37,7 @@ export const LOCATION_CONFIGS: Record<LocationId, LocationConfig> = {
     id: 'Tangway',
     name: 'Tangway',
     roles: [
-      { key: 'songLeader', label: 'Song Leader' },
+      { key: 'song_leader_id', label: 'Song Leader' },
       { key: 'musician', label: 'Musician' },
       { key: 'multimedia', label: 'Multimedia' },
       { key: 'soundTech', label: 'Sound Tech' },

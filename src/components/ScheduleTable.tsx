@@ -2,10 +2,26 @@ import React from 'react';
 import { useScheduleStore } from '../types/useScheduleStore';
 import type { LocationConfig } from '../types/types';
 import { ConflictDropdown } from './ConflictDropdown';
+import { createSchedule } from '../services/client';
 
 interface ScheduleTableProps {
   config: LocationConfig;
 }
+
+const handleSave = async () => {
+  for (const row of rows) {
+    if (!row.date) continue;
+
+    const payload = {
+      date: row.date,
+      ...row.assignments,
+    };
+
+    await createSchedule(config.id, payload);
+  }
+
+  alert('Schedule saved!');
+};
 
 export const ScheduleTable: React.FC<ScheduleTableProps> = ({ config }) => {
   const { schedules, addScheduleRow, updateRowDate, updateAssignment, deleteScheduleRow } = useScheduleStore();
