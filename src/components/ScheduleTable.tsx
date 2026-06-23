@@ -341,10 +341,10 @@ export const ScheduleTable: React.FC<ScheduleTableProps> = ({ config }) => {
 
   // Auto-fit spreadsheet column widths based on contents so nothing looks cut off
   worksheet.columns = [
-    { key: 'date', width: 12 }, // Fixed width for the Date column
+    { key: 'date', width: 10 }, // Fixed width for the Date column
     ...config.roles.map(role => ({ 
         key: role.key, 
-        width: 22 // Set a reasonable fixed width for all role columns
+        width: 20 // Set a reasonable fixed width for all role columns
     }))
   ];
 

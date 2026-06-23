@@ -7,7 +7,8 @@ export type LocationId = 'LNHC' | 'Tangway' | 'GarciaRosario';
 
 export type LNHCId =
   | 'song_leader_id'
-  | 'backup'
+  | 'backup_1'
+  | 'backup_2'
   | 'leadGuitar'
   | 'acoustic'
   | 'bass'
@@ -50,7 +51,8 @@ export const LOCATION_CONFIGS: Record<LocationId, LocationConfig> = {
     name: 'LNHC',
     roles: [
       { key: 'song_leader', label: 'Song Leader' },
-      { key: 'backup', label: 'Backup' },
+      { key: 'backup_1', label: 'Backup 1' },
+      { key: 'backup_2', label: 'Backup 2' },
       { key: 'lead_guitar', label: 'Lead Guitar' },
       { key: 'acoustic', label: 'Acoustic' },
       { key: 'bass', label: 'Bass' },
